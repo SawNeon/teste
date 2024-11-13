@@ -1,0 +1,134 @@
+package application;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Scanner;
+
+public class Program {
+
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        
+        String caminho = "C:\\Users\\seduc\\Documents\\QR CODE\\QR.txt";
+        
+        try {
+
+            FileReader arq = new FileReader(caminho);
+            BufferedReader lerArq = new BufferedReader(arq);
+            
+            String line;
+            String newLine; 
+            
+            int quantity = 1;
+            int caracter = 0;
+            
+            while ((line = lerArq.readLine()) != null) {
+
+                if (line.length() > 0) {
+                    char primeiraLetra = line.charAt(0);
+                    
+                    if (Character.isLetter(primeiraLetra)) {
+                        primeiraLetra = Character.toUpperCase(primeiraLetra);
+                        
+                        switch (primeiraLetra) {
+                            case 'A':
+                                caracter = 1;
+                                break;
+                            case 'B':
+                            	caracter = 2;
+                                break;
+                            case 'C':
+                            	caracter = 3;
+                                break;
+                            case 'D':
+                            	caracter = 4;
+                                break;
+                            case 'E':
+                            	caracter = 5;
+                                break;
+                            case 'F':
+                            	caracter = 6;
+                                break;
+                            case 'G':
+                            	caracter = 7;
+                                break;
+                            case 'H':
+                            	caracter = 8;
+                            case 'I':
+                            	caracter = 9;
+                                break;
+                            case 'J':
+                            	caracter = 10;
+                                break;
+                            case 'K':
+                            	caracter = 11;
+                                break;
+                            case 'L':
+                            	caracter = 12;
+                                break;
+                            case 'M':
+                            	caracter = 13;
+                                break;
+                            case 'N':
+                            	caracter = 14;
+                                break;
+                            case 'O':
+                            	caracter = 15;
+                                break;
+                            case 'P':
+                            	caracter = 16;
+                                break;
+                            case 'Q':
+                            	caracter = 17;
+                                break;
+                            case 'R':
+                            	caracter = 18;
+                                break;
+                            case 'S':
+                            	caracter = 19;
+                                break;
+                            case 'T':
+                            	caracter = 20;
+                                break;
+                            case 'U':
+                            	caracter = 21;
+                                break;
+                            case 'V':
+                            	caracter = 22;
+                                break;
+                            case 'W':
+                            	caracter = 23;
+                                break;
+                            case 'X':
+                            	caracter = 24;
+                                break;
+                            case 'Y':
+                            	caracter = 25;
+                                break;
+                            case 'Z':
+                            	caracter = 26;
+                                break;
+                            default:
+                                System.out.println("Linha começa com caractere não alfabético: " + line);
+                                break;
+                        }
+                    }
+                }
+                
+                newLine = caracter + "/" + quantity + line;
+                
+                System.out.println(newLine);
+                
+                quantity++;
+            }
+
+            lerArq.close();
+        } 
+        catch (Exception e) {
+            System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
+        }
+        
+        sc.close();
+    }
+}
